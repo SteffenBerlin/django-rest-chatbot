@@ -5,7 +5,7 @@ A chatbot API with the RASA chatbot built into a Django REST Boilerplate
 ## Getting Started
 
 The following README.md is copied from https://github.com/nils-wisiol/django-rest-boilerplate
-All credits for this great work go to https://github.com/nils-wisiol/ !!
+Credits for this great Django REST Boilerplate work go to https://github.com/nils-wisiol/ !!
 
 The info about the built-in chatbot API is not yet addressed in this Readme.
 
