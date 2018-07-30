@@ -103,3 +103,6 @@ ENV/
 
 # Certificates
 certs/
+
+# Apple Mac
+.DS_Store

@@ -22,10 +22,10 @@ services:
         ipv6_address: ${BOILERPLATE_IPV6_ADDRESS}
       rear_www_api:
       rear_www_static:
-    logging:
-      driver: "syslog"
-      options:
-        tag: "boilerplate/www"
+    #logging:
+    #  driver: "syslog"
+    #  options:
+    #    tag: "boilerplate/www"
     restart: unless-stopped
 
   db:
@@ -38,10 +38,10 @@ services:
     - BOILERPLATE_DB_PASSWORD
     networks:
     - rear_api_db
-    logging:
-      driver: "syslog"
-      options:
-        tag: "boilerplate/db"
+    #logging:
+    #  driver: "syslog"
+    #  options:
+    #    tag: "boilerplate/db"
     restart: unless-stopped
 
   api:
@@ -61,10 +61,18 @@ services:
     networks:
     - rear_www_api
     - rear_api_db
-    logging:
-      driver: "syslog"
-      options:
-        tag: "boilerplate/api"
+    - rear_api_rasa
+    #logging:
+    #  driver: "syslog"
+    #  options:
+    #    tag: "boilerplate/api"
+    restart: unless-stopped
+
+  rasa:
+    build: rasa
+    image: boilerplate/rasa:latest
+    networks:
+    - rear_api_rasa
     restart: unless-stopped
 
   static:
@@ -72,10 +80,10 @@ services:
     image: boilerplate/static:latest
     networks:
     - rear_www_static
-    logging:
-      driver: "syslog"
-      options:
-        tag: "boilerplate/static"
+    #logging:
+    #  driver: "syslog"
+    #  options:
+    #    tag: "boilerplate/static"
     restart: unless-stopped
 
 volumes:
@@ -116,3 +124,10 @@ networks:
       config:
       - subnet: ${BOILERPLATE_IPV4_16PREFIX}.3.0/24
         gateway: ${BOILERPLATE_IPV4_16PREFIX}.3.1
+  rear_api_rasa:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: ${BOILERPLATE_IPV4_16PREFIX}.4.0/24
+        gateway: ${BOILERPLATE_IPV4_16PREFIX}.4.1
