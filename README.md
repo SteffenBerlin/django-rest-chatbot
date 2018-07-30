@@ -1,15 +1,20 @@
-# Django REST Boilerplate
+# Django REST Chatbot
 
-A generic Docker-based Django solution for RESTful APIs and accompanying JavaScript applications.
+A chatbot API with the RASA chatbot built into a Django REST Boilerplate
 
 ## Getting Started
+
+The following README.md is copied from https://github.com/nils-wisiol/django-rest-boilerplate
+All credits for this great work go to https://github.com/nils-wisiol/ !!
+
+The info about the built-in chatbot API is not yet addressed in this Readme.
 
 ### Docker 
 This project uses Docker CE and Docker Compose to run all services. [Installing Docker](https://docs.docker.com/engine/installation/#supported-platforms)
 depends on the platform and is hence not included here. Docker Compose has to be [installed separately](https://docs.docker.com/compose/install/).
  
 ### Source Code
-To obtain the source code, please clone this repository.
+To obtain the source code of the Django Rest Boilerplate, please clone this repository.
 
     git clone https://github.com/nils-wisiol/django-rest-boilerplate
 
