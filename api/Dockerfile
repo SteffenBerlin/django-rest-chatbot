@@ -1,7 +1,7 @@
 FROM python:3.6
 
 RUN apt-get update && apt-get install -y \
-		mysql-client libmysqlclient-dev \
+		mysql-client default-libmysqlclient-dev \
 		postgresql-client libpq-dev \
 		sqlite3 \
 	--no-install-recommends && apt-get clean && rm -rf /var/lib/apt/lists/*
